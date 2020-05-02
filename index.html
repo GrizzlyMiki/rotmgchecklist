@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165064611-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-165064611-1');
+    </script>
+
+    <!-- favico definition -->
+    <link rel="icon" type="image/ico" href="favicon.ico">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <!-- My script -->
+    <script src="aux.js?1"></script>
+    <!-- Bootstrap CSS and JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- This one is for FontAwesome (camera icon) -->
+    <script src="https://kit.fontawesome.com/83d0da8ec1.js" crossorigin="anonymous"></script>
+
+    <title>RotMGChecklist</title>
+  </head>
+  
+  <body style="background-color: whitesmoke;">
+    <!-- Navbar with title and misc -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div>
+        <h2 class="mt-1 mb-0"><a class="m-0 p-0" style="text-decoration: none;color: whitesmoke;" href="index.html"><img style="max-width:48px;" src="resources/checkedWhitebag.png">&nbsp RotmgChecklist</a></h2>
+      </div>
+      <div class="row">
+        <form class="form-inline" onsubmit="event.preventDefault();">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search for item..." id="searchBar" onkeyup="searchItem()" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0 shadow rounded" type="submit">Search</button>
+        </form>
+        <button class="btn btn-secondary dropdown ml-4 mr-3 shadow rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right mr-2 shadow mb-5 py-0 bg-white rounded" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item py-2" style="cursor:pointer;" onClick="exportData()">Export data</a>
+          <div class="dropdown-divider my-0"></div>
+
+          <label for="myfile" class="dropdown-item py-2 my-0" onclick="$('myfile').click();" style="cursor: pointer;">Import data</label>
+          <input class="dropdown-item" onchange="importData(this)" style="display: none;" type="file" id="myfile" name="myfile"/>
+          <div class="dropdown-divider my-0"></div>
+
+
+          <a class="dropdown-item py-2" style="cursor:pointer;" onClick="clearData()">Clear all data</a>
+          <div class="dropdown-divider my-0"></div>
+          <a class="dropdown-item py-2" href="contact.html">Report a Bug</a>
+          <div class="dropdown-divider my-0"></div>
+          <a class="dropdown-item py-2" href="contact.html">Suggestions</a>
+          <div class="dropdown-divider my-0"></div>
+          <a class="dropdown-item py-2" href="support.html">Support me</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Row containing all filters -->
+    <div class="row mt-3 row-cols-* justify-content-md-center" style="margin-right: 0px;margin-left: 0px;">
+      <div class="btn-group-toggle mb-2" data-toggle="buttons">
+        <!-- Those 3 filters are kind of different from the rest, they aplly in a different way due to business logic -->
+        <label class="btn btn-secondary active p-1 mr-2" style="background-color:whitesmoke;min-width: 81px;"><input id="gotFilter" onClick="clickOnHideGot(this)" type="checkbox"><h4 id="hideGotText" class="mb-0 align-middle" style="color: black;">To get</h4></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="whitebagFilter" onClick="clickFilter('whitebagFilter')" type="checkbox" unchecked><img src="resources/whitebag.png"></label>
+        <label class="btn btn-secondary active p-1 mr-4" style="background-color:whitesmoke;"><input id="orangebagFilter" onClick="clickFilter('orangebagFilter')" type="checkbox" unchecked><img src="resources/orangebag.png"></label>
+        <!-- The first checkbox of each group contains a .gif and is a shortcut for clicking all in their group -->
+        <!-- When the page loads they are activated, but they will all deactivate when the user does the first click -->
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="weaponFilter" onClick="clickFilter('weaponFilter')" type="checkbox" unchecked><img src="resources/weapon.gif"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="daggerFilter" onClick="clickFilter('daggerFilter')" type="checkbox" checked><img src="resources/dagger.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="swordFilter" onClick="clickFilter('swordFilter')" type="checkbox" checked><img src="resources/sword.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="bowFilter" onClick="clickFilter('bowFilter')" type="checkbox" checked><img src="resources/bow.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="staffFilter" onClick="clickFilter('staffFilter')" type="checkbox" checked><img src="resources/staff.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="wandFilter" onClick="clickFilter('wandFilter')" type="checkbox" checked><img src="resources/wand.png"></label>
+        <label class="btn btn-secondary active p-1 mr-2" style="background-color:whitesmoke;"><input id="katanaFilter" onClick="clickFilter('katanaFilter')" type="checkbox" checked><img src="resources/katana.png"></label>
+
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="abilityFilter" onClick="clickFilter('abilityFilter')" type="checkbox" unchecked><img src="resources/ability.gif"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="cloakFilter" onClick="clickFilter('cloakFilter')" type="checkbox" checked><img src="resources/cloak.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="poisonFilter" onClick="clickFilter('poisonFilter')" type="checkbox" checked><img src="resources/poison.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="prismFilter" onClick="clickFilter('prismFilter')" type="checkbox" checked><img src="resources/prism.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="quiverFilter" onClick="clickFilter('quiverFilter')" type="checkbox" checked><img src="resources/quiver.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="trapFilter" onClick="clickFilter('trapFilter')" type="checkbox" checked><img src="resources/trap.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="starFilter" onClick="clickFilter('starFilter')" type="checkbox" checked><img src="resources/star.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="spellFilter" onClick="clickFilter('spellFilter')" type="checkbox" checked><img src="resources/spell.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="skullFilter" onClick="clickFilter('skullFilter')" type="checkbox" checked><img src="resources/skull.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="orbFilter" onClick="clickFilter('orbFilter')" type="checkbox" checked><img src="resources/orb.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="tomeFilter" onClick="clickFilter('tomeFilter')" type="checkbox" checked><img src="resources/tome.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="scepterFilter" onClick="clickFilter('scepterFilter')" type="checkbox" checked><img src="resources/scepter.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="helmFilter" onClick="clickFilter('helmFilter')" type="checkbox" checked><img src="resources/helm.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="shieldFilter" onClick="clickFilter('shieldFilter')" type="checkbox" checked><img src="resources/shield.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="sealFilter" onClick="clickFilter('sealFilter')" type="checkbox" checked><img src="resources/seal.png"></label>
+        <label class="btn btn-secondary active p-1  mr-2" style="background-color:whitesmoke;"><input id="wakizashiFilter" onClick="clickFilter('wakizashiFilter')" type="checkbox" checked><img src="resources/wakizashi.png"></label>
+
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="armorFilter" onClick="clickFilter('armorFilter')" type="checkbox" unchecked><img src="resources/armor.gif"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="leatherarmorFilter" onClick="clickFilter('leatherarmorFilter')" type="checkbox" checked><img src="resources/leatherarmor.png"></label>
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="robeFilter" onClick="clickFilter('robeFilter')" type="checkbox" checked><img src="resources/robe.png"></label>
+        <label class="btn btn-secondary active p-1  mr-2" style="background-color:whitesmoke;"><input id="heavyarmorFilter" onClick="clickFilter('heavyarmorFilter')" type="checkbox" checked><img src="resources/heavyarmor.png"></label>
+        <!-- Ring is the exception because there are not subtypes of rings -->
+        <label class="btn btn-secondary active p-1" style="background-color:whitesmoke;"><input id="ringFilter" onClick="clickFilter('ringFilter')" type="checkbox" checked><img src="resources/ring.png"></label>      </div>
+    </div>
+
+    <!-- This is the grid which will hold all the items, will get filled by javascript (so the http response is lighter) -->
+    <div class="row justify-content-start mt-3 row-cols-*" style="margin-right: 0px;margin-left: 0px;" id="itemGrid">
+      <script>
+        //  After we create the grid, we create a div for each item we know
+        fillItemGrid();
+        //  As i told, those 3 filters are kind of different and we want to activate them manually
+        document.getElementById('gotFilter').click();
+        document.getElementById('whitebagFilter').click();
+        document.getElementById('orangebagFilter').click();
+        //  We create the item drop sound to play when clicking on bags
+        for(i = 0; i < 10; i++) {
+          dropSound[i] = new sound("resources/dropSound.ogg");
+        }
+        //  Now we load the count of each item from localStorage
+        loadItemCount();
+        //  We set up a modal to show mini-screenshots of an item as soon as it gets clicked
+        $(function(){
+          $('#exampleModalCenter').on('show.bs.modal', function (event) {
+            currentItemID = $(event.relatedTarget).data('itemid');
+            //  This function will fill the modal with the photos
+            displayScreenshots(currentItemID);
+          });
+        });
+      </script>
+
+      <!-- Modal to show mini-screenshots of a specific item (will change the content each time it gets invoked, depending on the caller item) -->
+      <div class="modal fade pr-0" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Screenshots</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row row-cols-md-3" id="screenshotList">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- We set a modal to show the full size photo of a mini-photo when it's clicked -->
+      <script>
+        $(function(){
+          $('#realSizeImageModal').on('show.bs.modal', function (event) {
+            document.getElementById('realSizeScreenshot').src = $(event.relatedTarget).data('imageurl');
+          });
+        });
+      </script>
+
+      <!-- Modal to show the full size screenshots of a specific item (will change the content each time it gets invoked, depending on the miniphoto clicked) -->
+      <div class="modal fade" id="realSizeImageModal" style="text-align: center;" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog mx-auto mb-0" style="max-width: 100%;width: auto;display: inline-block;" role="document">
+          <div class="modal-content mx-auto">
+            <div class="modal-body mx-auto p-0">
+              <img style="max-width:100%;" id="realSizeScreenshot" src="resources/whitebag.png" onClick="closeModal('#realSizeImageModal')" alt="Error loading image, check url for disponibility.">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal with the input to add a new screenshot (via URL) for an item * This one gets called from the photo/button inside the "exampleModalCenter" modal,
+      that photo/button gets created by javascript dinamically* -->
+      <div class="modal fade" id="addScreenshotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Add new Screenshot</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form onsubmit="return addScreenshot('#addScreenshotModal')">
+                <div class="form-group">
+                  <label for="Copy the photo url here:">Copy the URL to the image:</label>
+                  <input type="url" class="form-control" id="addUrl" aria-describedby="urlHelp">
+                  <small id="urlHelp" class="form-text text-muted">Must be a direct link to the photo, the one with file extension.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Modal to confirm the delete of a screenshot. This one gets created from right-clicking the miniature of the screenshot the user wants to delete -->
+    <div class="modal fade" id="confirmScreenshotDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Are you sure you want to remove the screenshot?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <button type="button" class="btn btn-primary btn-lg" onClick="deleteScreenshot('true')">Delete</button>
+            <button type="button" class="btn btn-secondary btn-lg" onClick="deleteScreenshot('false')">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

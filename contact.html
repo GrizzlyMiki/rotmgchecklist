@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165064611-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-165064611-1');
+    </script>
+    
+    <!-- favico definition -->
+    <link rel="icon" type="image/ico" href="favicon.ico">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <!-- My script -->
+    <script src="aux.js"></script>
+    <!-- Bootstrap CSS and JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- This one is for FontAwesome (camera icon) -->
+    <script src="https://kit.fontawesome.com/83d0da8ec1.js" crossorigin="anonymous"></script>
+
+    <title>RotMGChecklist</title>
+  </head>
+  
+  <body style="background-color: whitesmoke;">
+    <!-- Navbar with title and misc -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div>
+        <h2 class="mt-1 mb-0"><a class="m-0 p-0" style="text-decoration: none;color: whitesmoke;" href="index.html"><img style="max-width:48px;" src="resources/checkedWhitebag.png">&nbsp WhiteBagCheckList</a></h2>
+      </div>
+      <div class="row">
+        <form class="form-inline" onsubmit="event.preventDefault();">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search for item..." id="searchBar" onkeyup="searchItem()" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0 shadow rounded" type="submit">Search</button>
+        </form>
+        <button class="btn btn-secondary dropdown ml-4 mr-3 shadow rounded" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right mr-2 shadow mb-5 py-0 bg-white rounded" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item py-2 my-0" href="contact.html">Report a Bug</a>
+          <div class="dropdown-divider my-0"></div>
+          <a class="dropdown-item py-2" href="contact.html">Suggestions</a>
+          <div class="dropdown-divider my-0"></div>
+          <a class="dropdown-item py-2 my-0" href="support.html">Help keep this page working</a>
+        </div>
+      </div>
+    </nav>
+    <div class="card mt-3 mx-auto" style="max-width: 85rem;">
+      <div class="card-body">
+        <h5>
+          Hello!<br /> 
+          My name is Miguel, if you want to contact me you can do it via e-mail: <b>amaruhebi@hotmail.com</b><br /> 
+          If you want to report a bug, first of all I'd like to thank you for it, doing so helps me keep this page up to date and running smoothly.<br /> 
+          If that is the case you can be sure you will get an answer from me personally (unless you dont want it).<br /> <br /> 
+          The same goes for if you want to give me some suggestions, I appreciate them a lot and will consider each one of them.<br /> 
+          Althought in this case I have to tell you I am the only developer working in this page and that I have a lot of work to do since im finishing my degree.<br /> 
+          That means that if something is too hard to implement or I have no time, I won't be able to do so even if it is a good idea.<br /> 
+          I will also try to answer suggestions unless I get too many.<br /> <br /> 
+          Thanks you very much and may Oryx be with you!! ^^<br /> 
+        </h5>
+      </div>
+    </div>
+  </body>
+</html>
