@@ -18,25 +18,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- My script and CSS -->
+    <script src="minified.js?2"></script>
+    <link rel="stylesheet" href="styles.css?2">
+
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <!-- My script and CSS -->
-    <script src="aux.js?2"></script>
-    <link rel="stylesheet" href="styles.css?2">
-    <!-- Bootstrap CSS and JS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <!-- This one is for FontAwesome (camera icon) -->
-    <script src="https://kit.fontawesome.com/83d0da8ec1.js" crossorigin="anonymous"></script>
-
-
 
     <title>RotMG Checklist</title>
   </head>
   <body style="background-color: #243b53;">
     <!-- Navbar with title and misc -->
-    <nav class="navbar" style="background-color: #102a43;">
+    <nav class="navbar" style="background-color: #102a43
+    ; border-bottom: 1px solid #334e68;">
       <div>
         <h2 class="mt-1 mb-0"><a class="m-0 p-0" style="text-decoration: none;color: #D9E2EC;" href="index.html"><img style="max-width:48px;" src="resources/checkedWhitebag.png">&nbsp Rotmg Checklist</a></h2>
       </div>
@@ -46,7 +40,7 @@
         </h5>
 
         <!-- Those 3 filters are kind of different from the rest, they aplly in a different way due to business logic -->
-        <label class="my-btn p-0 my-auto mr-3" style="background-color: #BCCCDC;min-width: 81px;height: 35px;"><input id="gotFilter" class="itemFilter" onClick="clickOnHideGot(this)" type="checkbox"><h4 id="hideGotText" class="mb-0 align-middle" style="color: black;">To get</h4></label>
+        <label class="my-btn p-0 my-auto mr-3" style="background-color: #BCCCDC;min-width: 81px;height: 35px;"><input id="gotFilter" class="itemFilter" onClick="clickOnHideGot(this)" type="checkbox"><h5 id="hideGotText" class="mb-0 align-middle" style="color: #102a43;">To get</h5></label>
         <label class="my-btn p-0 my-1 mr-1"><input id="whitebagFilter" class="itemFilter" onClick="clickFilter('whitebagFilter')" type="checkbox" unchecked><img class="filterImg" src="resources/whitebag.png"></label>
         <label class="my-btn p-0 my-1 mr-5"><input id="orangebagFilter" class="itemFilter" onClick="clickFilter('orangebagFilter')" type="checkbox" unchecked><img class="filterImg" src="resources/orangebag.png"></label>
 
@@ -56,7 +50,7 @@
         </form>
         <!--  Dropdown menu at the top right-->
         <button class="btn btn-secondary dropdown ml-4 mr-3 my-auto shadow rounded" style="background-color: #486581;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-bars"></i>
+          <img src="resources/optionsIcon.svg" style="width:20px"/>
         </button>
 
         <div class="dropdown-menu dropdown-menu-right mr-3 shadow mt-0 mb-5 py-0 bg-white rounded" aria-labelledby="dropdownMenuButton">
@@ -218,5 +212,9 @@
         </div>
       </div>
     </div>
+    <!-- Bootstrap CSS and JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
 </html>
