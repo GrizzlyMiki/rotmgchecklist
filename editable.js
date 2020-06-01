@@ -2,7 +2,7 @@
 var currentItemID = '';
 var imageToDelete = '';
 //  This variable is used to make the 3-state checkbox with which we show all items, those we got, or those we haven't got yet
-var hideGotState = 2; //  0 = all, 1 = to get, 2 = got
+var hideGotState = 0; //  0 = all, 1 = to get, 2 = got
 
 //  Arrays for grouping filter button IDs
 const weaponFilters = ['swordFilter', 'bowFilter', 'daggerFilter', 'staffFilter', 'wandFilter', 'katanaFilter'];
@@ -48,16 +48,16 @@ function fillItemGrid() {
 <div class="itemContainer col mb-4 mx-3 colitem ${attributes}" id="${actualItem}Card">
     <div class="itemContainer card" style="background-color: #486581;">
         <a href="${itemNameInWikiURL}" class="mt-3">
-            <img src="resources/items/${actualItem}.png" style="display:block;margin:auto;height:40px;width:40px;" alt="Image" /></a>
+            <img src="resources/items/${actualItem}.png" style="display:block; margin:auto;" height="40" width="40" loading="lazy" alt="Image"/></a>
         <h2 class="itemName mb-0" style="text-align:center;">${actualItem}</h2>
         <div class="card-body">
             <div class="row align-items-end">
                 <div class="mx-auto mt-1" style="width:48px; height:48px;">
-                    <input class="img-fluid" type="image" src="resources/${getBagType(actualItem)}.png" style="outline:none;height:48px;width:48px;" oncontextmenu="return clickCounterSubstract(\'${itemNameEscaped}\')" onclick="clickCounter(\'${itemNameEscaped}\')" alt="Image"/></div>
+                    <input type="image" src="resources/${getBagType(actualItem)}.png" style="outline:none;height:48px;width:48px;" oncontextmenu="return clickCounterSubstract(\'${itemNameEscaped}\')" onclick="clickCounter(\'${itemNameEscaped}\')" alt="Image"/></div>
                 <h1 class="mb-0 pb-0" onclick="clickCounterSubstract(\'${itemNameEscaped}\')" style="text-align:center;" id="${actualItem}"></h1>
                 <div class="mx-auto pl-1">
                     <button data-toggle="modal" data-target="#exampleModalCenter" data-itemid="${actualItem}" type="button" id="button${actualItem}" class="btn btn-primary">
-                    <img src="resources/cameraIcon.svg" style="width:20px;"/></button></div></div></div></div></div>`;
+                    <img src="resources/cameraIcon.svg" style="width:20px; height: 20px;"/></button></div></div></div></div></div>`;
     }
     document.getElementById('itemGrid').innerHTML = gridContent;
 }

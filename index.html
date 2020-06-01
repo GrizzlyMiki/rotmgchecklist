@@ -20,8 +20,8 @@
     <meta name="description" content="Create checklist for your white bags in RotMG. Here you can track your whitebags, orangebags, or rare items in the game Realm of the Mad God.">
 
     <!-- My script and CSS -->
-    <script src="editable.js?2"></script>
-    <link rel="stylesheet" href="styles.css?2">
+    <script src="minified.js?4"></script>
+    <link rel="stylesheet" href="styles.css?6">
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -38,17 +38,18 @@
     <nav class="navbar" style="background-color: #102a43
     ; border-bottom: 1px solid #334e68;">
       <div>
-        <h2 class="mt-1 mb-0"><a class="m-0 p-0" style="text-decoration: none;color: #D9E2EC;" href="index.html"><img style="max-width:48px;" src="resources/checkedWhitebag.png">&nbsp Rotmg Checklist</a></h2>
+        <h2 class="mt-1 mb-0"><a class="m-0 p-0" style="text-decoration: none;color: #D9E2EC;" href="index.html"><img style="width:48px; height:43.54px;" src="resources/checkedWhitebag.png">&nbsp Rotmg Checklist</a></h2>
       </div>
       <div class="row">
 
-        <h5 id="completionRate" class="my-auto mr-4" style="color: #BCCCDC;"> 
+        <h5 id="completionRate" class="my-auto mr-4" style="color: #BCCCDC;">
+          0/300 (0.00%)
         </h5>
 
         <!-- Those 3 filters are kind of different from the rest, they aplly in a different way due to business logic -->
-        <label class="my-btn p-0 my-auto mr-3" style="background-color: #BCCCDC;min-width: 81px;height: 35px;"><input id="gotFilter" class="itemFilter" onClick="clickOnHideGot(this)" type="checkbox"><h5 id="hideGotText" class="mb-0 align-middle" style="color: #102a43;">To get</h5></label>
-        <label class="my-btn p-0 my-1 mr-1"><input id="whitebagFilter" class="itemFilter" onClick="clickFilter('whitebagFilter')" type="checkbox" unchecked><img class="filterImg" src="resources/whitebag.png"></label>
-        <label class="my-btn p-0 my-1 mr-5"><input id="orangebagFilter" class="itemFilter" onClick="clickFilter('orangebagFilter')" type="checkbox" unchecked><img class="filterImg" src="resources/orangebag.png"></label>
+        <label class="my-btn p-0 my-auto mr-3" style="background-color: #BCCCDC;min-width: 81px;height: 35px;"><input id="gotFilter" class="itemFilter" onClick="clickOnHideGot(this)" type="checkbox"><h5 id="hideGotText" class="mb-0 align-middle" style="color: #102a43;">All</h5></label>
+        <label class="my-btn p-0 my-1 mr-1"><input id="whitebagFilter" class="itemFilter" onClick="clickFilter('whitebagFilter')" type="checkbox" checked><img class="bagFilter" loading="eager" src="resources/whitebag.png"></label>
+        <label class="my-btn p-0 my-1 mr-5"><input id="orangebagFilter" class="itemFilter" onClick="clickFilter('orangebagFilter')" type="checkbox" checked><img class="bagFilter" loading="eager" src="resources/orangebag.png"></label>
 
         <form class="form-inline" onsubmit="event.preventDefault();">
           <input class="form-control mr-sm-2" style="background-color: #BCCCDC;" type="search" placeholder="Search for item..." id="searchBar" onkeyup="searchItem()" aria-label="Search">
@@ -80,38 +81,38 @@
     <div class="row mt-3 row-cols-* justify-content-md-center m-0 p-0">
         <!-- The first checkbox of each group contains a .gif and is a shortcut for clicking all in their group -->
         <!-- When the page loads they are activated, but they will all deactivate when the user does the first click -->
-        <label class="my-btn p-0"><input id="weaponFilter" class="itemFilter" onClick="clickFilter('weaponFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/weapon.gif"></label>
-        <label class="my-btn p-0"><input id="daggerFilter" class="itemFilter" onClick="clickFilter('daggerFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/dagger.png"></label>
-        <label class="my-btn p-0"><input id="swordFilter" class="itemFilter" onClick="clickFilter('swordFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/sword.png"></label>
-        <label class="my-btn p-0"><input id="bowFilter" class="itemFilter" onClick="clickFilter('bowFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/bow.png"></label>
-        <label class="my-btn p-0"><input id="staffFilter" class="itemFilter" onClick="clickFilter('staffFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/staff.png"></label>
-        <label class="my-btn p-0"><input id="wandFilter" class="itemFilter" onClick="clickFilter('wandFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/wand.png"></label>
-        <label class="my-btn p-0 mr-3"><input id="katanaFilter" class="itemFilter" onClick="clickFilter('katanaFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/katana.png"></label>
+        <label class="my-btn p-0 m"><input id="weaponFilter" class="itemFilter" onClick="clickFilter('weaponFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/weapon.gif"></label>
+        <label class="my-btn p-0"><input id="daggerFilter" class="itemFilter" onClick="clickFilter('daggerFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/dagger.png"></label>
+        <label class="my-btn p-0"><input id="swordFilter" class="itemFilter" onClick="clickFilter('swordFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/sword.png"></label>
+        <label class="my-btn p-0"><input id="bowFilter" class="itemFilter" onClick="clickFilter('bowFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/bow.png"></label>
+        <label class="my-btn p-0"><input id="staffFilter" class="itemFilter" onClick="clickFilter('staffFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/staff.png"></label>
+        <label class="my-btn p-0"><input id="wandFilter" class="itemFilter" onClick="clickFilter('wandFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/wand.png"></label>
+        <label class="my-btn p-0 mr-3"><input id="katanaFilter" class="itemFilter" onClick="clickFilter('katanaFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/katana.png"></label>
 
-        <label class="my-btn p-0" style="background-color: #BCCCDC;"><input id="abilityFilter" class="itemFilter" onClick="clickFilter('abilityFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/ability.gif"></label>
-        <label class="my-btn p-0"><input id="cloakFilter" class="itemFilter" onClick="clickFilter('cloakFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/cloak.png"></label>
-        <label class="my-btn p-0"><input id="poisonFilter" class="itemFilter" onClick="clickFilter('poisonFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/poison.png"></label>
-        <label class="my-btn p-0"><input id="prismFilter" class="itemFilter" onClick="clickFilter('prismFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/prism.png"></label>
-        <label class="my-btn p-0"><input id="quiverFilter" class="itemFilter" onClick="clickFilter('quiverFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/quiver.png"></label>
-        <label class="my-btn p-0"><input id="trapFilter" class="itemFilter" onClick="clickFilter('trapFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/trap.png"></label>
-        <label class="my-btn p-0"><input id="starFilter" class="itemFilter" onClick="clickFilter('starFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/star.png"></label>
-        <label class="my-btn p-0"><input id="spellFilter" class="itemFilter" onClick="clickFilter('spellFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/spell.png"></label>
-        <label class="my-btn p-0"><input id="skullFilter" class="itemFilter" onClick="clickFilter('skullFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/skull.png"></label>
-        <label class="my-btn p-0"><input id="orbFilter" class="itemFilter" onClick="clickFilter('orbFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/orb.png"></label>
-        <label class="my-btn p-0"><input id="tomeFilter" class="itemFilter" onClick="clickFilter('tomeFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/tome.png"></label>
-        <label class="my-btn p-0"><input id="scepterFilter" class="itemFilter" onClick="clickFilter('scepterFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/scepter.png"></label>
-        <label class="my-btn p-0"><input id="helmFilter" class="itemFilter" onClick="clickFilter('helmFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/helm.png"></label>
-        <label class="my-btn p-0"><input id="shieldFilter" class="itemFilter" onClick="clickFilter('shieldFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/shield.png"></label>
-        <label class="my-btn p-0"><input id="sealFilter" class="itemFilter" onClick="clickFilter('sealFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/seal.png"></label>
-        <label class="my-btn p-0"><input id="wakizashiFilter" class="itemFilter" onClick="clickFilter('wakizashiFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/wakizashi.png"></label>
-        <label class="my-btn p-0 mr-3"><input id="luteFilter" class="itemFilter" onClick="clickFilter('luteFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/lute.png"></label>
+        <label class="my-btn p-0"><input id="abilityFilter" class="itemFilter" onClick="clickFilter('abilityFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/ability.gif"></label>
+        <label class="my-btn p-0"><input id="cloakFilter" class="itemFilter" onClick="clickFilter('cloakFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/cloak.png"></label>
+        <label class="my-btn p-0"><input id="poisonFilter" class="itemFilter" onClick="clickFilter('poisonFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/poison.png"></label>
+        <label class="my-btn p-0"><input id="prismFilter" class="itemFilter" onClick="clickFilter('prismFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/prism.png"></label>
+        <label class="my-btn p-0"><input id="quiverFilter" class="itemFilter" onClick="clickFilter('quiverFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/quiver.png"></label>
+        <label class="my-btn p-0"><input id="trapFilter" class="itemFilter" onClick="clickFilter('trapFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/trap.png"></label>
+        <label class="my-btn p-0"><input id="starFilter" class="itemFilter" onClick="clickFilter('starFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/star.png"></label>
+        <label class="my-btn p-0"><input id="spellFilter" class="itemFilter" onClick="clickFilter('spellFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/spell.png"></label>
+        <label class="my-btn p-0"><input id="skullFilter" class="itemFilter" onClick="clickFilter('skullFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/skull.png"></label>
+        <label class="my-btn p-0"><input id="orbFilter" class="itemFilter" onClick="clickFilter('orbFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/orb.png"></label>
+        <label class="my-btn p-0"><input id="tomeFilter" class="itemFilter" onClick="clickFilter('tomeFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/tome.png"></label>
+        <label class="my-btn p-0"><input id="scepterFilter" class="itemFilter" onClick="clickFilter('scepterFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/scepter.png"></label>
+        <label class="my-btn p-0"><input id="helmFilter" class="itemFilter" onClick="clickFilter('helmFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/helm.png"></label>
+        <label class="my-btn p-0"><input id="shieldFilter" class="itemFilter" onClick="clickFilter('shieldFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/shield.png"></label>
+        <label class="my-btn p-0"><input id="sealFilter" class="itemFilter" onClick="clickFilter('sealFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/seal.png"></label>
+        <label class="my-btn p-0"><input id="wakizashiFilter" class="itemFilter" onClick="clickFilter('wakizashiFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/wakizashi.png"></label>
+        <label class="my-btn p-0 mr-3"><input id="luteFilter" class="itemFilter" onClick="clickFilter('luteFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/lute.png"></label>
 
-        <label class="my-btn p-0"><input id="armorFilter" class="itemFilter" onClick="clickFilter('armorFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/armor.gif"></label>
-        <label class="my-btn p-0"><input id="leatherarmorFilter" class="itemFilter" onClick="clickFilter('leatherarmorFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/leatherarmor.png"></label>
-        <label class="my-btn p-0"><input id="robeFilter" class="itemFilter" onClick="clickFilter('robeFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/robe.png"></label>
-        <label class="my-btn p-0 mr-3"><input id="heavyarmorFilter" class="itemFilter" onClick="clickFilter('heavyarmorFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/heavyarmor.png"></label>
+        <label class="my-btn p-0"><input id="armorFilter" class="itemFilter" onClick="clickFilter('armorFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/armor.gif"></label>
+        <label class="my-btn p-0"><input id="leatherarmorFilter" class="itemFilter" onClick="clickFilter('leatherarmorFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/leatherarmor.png"></label>
+        <label class="my-btn p-0"><input id="robeFilter" class="itemFilter" onClick="clickFilter('robeFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/robe.png"></label>
+        <label class="my-btn p-0 mr-3"><input id="heavyarmorFilter" class="itemFilter" onClick="clickFilter('heavyarmorFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/heavyarmor.png"></label>
         <!-- Ring is the exception because there are not subtypes of rings -->
-        <label class="my-btn p-0"><input id="ringFilter" class="itemFilter" onClick="clickFilter('ringFilter')" type="checkbox" unchecked><img class="filterImg p-1" src="resources/ring.png"></label>      </div>
+        <label class="my-btn p-0"><input id="ringFilter" class="itemFilter" onClick="clickFilter('ringFilter')" type="checkbox" unchecked><img class="filterImg" loading="eager" src="resources/ring.png"></label>      </div>
 
     <!-- This is the grid which will hold all the items, will get filled by javascript (so the http response is lighter) -->
     <div class="row justify-content-start mt-3 row-cols-*" style="margin-right: 0px;margin-left: 0px;" id="itemGrid">
@@ -120,10 +121,6 @@
         fillItemGrid();
         //  Now we load the count of each item from localStorage
         loadItemCount();
-        //  As i told, those 3 filters are kind of different and we want to activate them manually
-        document.getElementById('gotFilter').click();
-        document.getElementById('whitebagFilter').click();
-        document.getElementById('orangebagFilter').click();
         //  We create the item drop sound to play when clicking on bags
         for(i = 0; i < 4; i++) {
           dropSound[i] = new sound("resources/dropSound.ogg");
