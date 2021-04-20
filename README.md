@@ -6,19 +6,19 @@ added completion ratio
 UI improvement  
 Added new Lute items and filter  
 #	RELEASE 2.1
-Images re-compressed to go from 3xxKB to 19xKB just in "items" folder
+Images re-compressed to go from 3xxKB to 19xKB just in "items" folder  
 #	RELEASE 2.2
-Fontawesome removed as a reference to improve load speed
-minimal UI changes
-now aux.js is minified.js and its a minified version of editable.js
+Fontawesome removed as a reference to improve load speed  
+minimal UI changes  
+now aux.js is minified.js and its a minified version of editable.js  
 #	RELEASE 3.3
-added "description" meta tag so google indexes the website when it should. Cause I didn't know it existed before :)
-sitemap had disappeared wtf fixed
+added "description" meta tag so google indexes the website when it should. Cause I didn't know it existed before :)  
+sitemap had disappeared wtf fixed  
 #	RELEASE 3.4
 Fixed google CLS
-added loading lazy to images and eager to images in filters
-Fixed styling of support and contact pages
+added loading lazy to images and eager to images in filters  
+Fixed styling of support and contact pages  
 #	RELEASE 3.5
-Now CLS is 100% fixed
-added .htaccess and some policies, i think it wasn't working before
-other policies still dont work
+Now CLS is 100% fixed  
+added .htaccess and some policies, i think it wasn't working before  
+other policies still dont work  
