@@ -1,3 +1,8 @@
+# RotMG Checklist
+The site is pretty self explanatory, allows you to keep track of the rare items you got (whitebags and orangebags)
+
+Site available in: https://grizzlymiki.github.io/rotmgchecklist/
+
 #	RELEASE 2
 Reduced whitebag sound instances to 4  
 Hard switch to dark mode  
